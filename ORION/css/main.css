@@ -1,0 +1,1020 @@
+@charset "utf-8";
+@font-face{ font-family: 'KoPubDotumBold'; font-weight: 700; font-style: normal; src: url('../fonts/KoPubDotumBold.woff') format("woff"), url('../fonts/KoPubDotumBold.ttf') format("truetype");}
+@font-face{ font-family: 'KoPubDotumMedium'; font-weight: 400; font-style: normal; src: url('../fonts/KoPubDotumMedium.woff') format("woff"), url('../fonts/KoPubDotumMedium.ttf') format("truetype"); }
+@font-face{ font-family: 'KoPubDotumLight'; font-weight: 300; font-style: normal; src: url('../fonts/KoPubDotumLight.woff') format("woff"), url('../fonts/KoPubDotumLight.ttf') format("truetype"); }
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css); .nanumgothic * { font-family: 'Nanum Gothic', sans-serif; }
+@font-face { font-family: 'NEXEN_TIRE_Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NEXEN_TIRE_Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Regular.woff') format('woff'); font-weight: normal; font-style: normal; }
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap');
+
+@keyframes arrow{
+    0%{ transform: translateY(0); }
+    50%{ transform: translateY(20%); }
+    100%{ transform: translateY(0); }
+}
+
+@keyframes wobble{
+    0 { transform: translateX(10px); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); } 
+    75% { transform: translateX(-10px); } 
+}
+body::-webkit-scrollbar { width: 0 !important }
+body { overflow: -moz-scrollbars-none; }
+body { -ms-overflow-style: none; }
+
+#wrap{
+    width: 100%;
+    height: 100%;
+}
+/*###########dot################*/
+.dot-wrap{}
+.dot-wrap .dot{
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+}
+.dot-wrap .dot>li{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 15px;
+    transition: 0.5s all ease;
+    position: relative;
+}
+.dot-wrap .dot>li.on{
+    height: 70px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+}
+.dot-wrap .dot>li p{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-family: Candara;
+    font-style: italic;
+    font-weight: bold;
+    color: #fff;
+    display: none;
+    transition: 0.5s all ease;
+}
+.dot-wrap .dot>li.on p{
+    display: block;
+}
+/*###########header################*/
+#header{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#header .sub-cover{
+    width: 100%;
+    height: 0; /*280px*/
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s all ease;
+}
+
+#header .main-nav{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    border-bottom: 1px solid #fff;
+}
+#header .main-nav h1 a img{
+    width: 280px;
+    height: auto;
+}
+#header .main-nav .gnb{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 200px;
+}
+#header .main-nav .gnb>li{
+    font-family: 'KoPubDotumBold';
+    font-size: 23px;
+    position: relative;
+    padding-right: 130px;
+}
+#header .main-nav .gnb>li>a{
+    display: block;
+    color: #fff;
+    position: relative;
+    height: 100px;
+    line-height: 100px;
+}
+#header .main-nav .gnb>li>a:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background-color: #eb1c2a;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+    transition: 0.5s all cubic-bezier(0.2, 0.3, 0.5, 1.8);
+}
+#header .main-nav .gnb>li>a.on:after{
+    width: 120%;
+}
+#header .main-nav .gnb>li .lnb{
+    display: none;
+    position: absolute;
+    top: 110px;
+    left: 0;
+}
+#header .main-nav .gnb>li .lnb li{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+}
+#header .main-nav .gnb>li .lnb li a.on{
+    color: #eb1c2a;
+}
+
+#header .main-nav .ham-menu{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+#header .main-nav .ham-menu span{
+    position: absolute;
+    right: 50px;
+    z-index: 201;
+    display: block;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: 0.3s all ease;
+}
+#header .main-nav .ham-menu span.bar1{
+    width: 60px;
+    top: 40px;
+}
+#header .main-nav .ham-menu span.bar2{
+    width: 40px;
+    top: 60px;
+}
+#header .main-nav .ham-menu span.bar1.on{
+    transform: rotate(45deg);
+}
+#header .main-nav .ham-menu span.bar2.on{
+    width: 60px;
+    transform: rotate(-45deg);
+}
+#header .main-nav .ham-menu span.bar2.hover{
+    width: 60px;
+}
+
+
+#header .all-menu{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 100%; /*0*/
+    background-image: url(../images/menu-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 9;
+    transition: 0.5s all ease-out;
+}
+#header .all-menu:after{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+}
+#header .all-menu .main-list{
+    position: absolute;
+    z-index: 10;
+    margin-left: 350px;
+    padding-top: 230px;
+}
+#header .all-menu .main-list>li{
+    font-size: 76px;
+    font-family: 'NEXEN_TIRE_Bold';
+    position: relative;
+    margin-bottom: 30px;
+    padding-right: 80px;
+}
+#header .all-menu .main-list>li>a{
+    color: rgba(255,255,255,0.5);
+}
+#header .all-menu .main-list>li>a.on{
+    color: #fff;
+}
+#header .all-menu .main-list>li .sub-list{
+    display: flex;
+    width: 1200px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+#header .all-menu .main-list>li .sub-list li{
+    font-size: 36px;
+    font-family: 'NEXEN_TIRE_Regular';
+    padding-left: 80px;
+}
+#header .all-menu .main-list>li .sub-list li a{
+    color: rgba(255,255,255,0.5);
+}
+#header .all-menu .main-list>li .sub-list li a.on{
+    color: #fff;
+}
+/*###########section1################*/
+#section1{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#section1 video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+    object-fit: cover;
+    overflow: hidden;
+}
+#section1 .mouse{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: arrow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#section1 .mouse img{
+    width: 60px;
+    height: auto;
+}
+/*###########section2################*/
+#section2{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(90deg, #eb1c2a 50%, #fff 50%);
+    overflow: hidden;
+}
+.section2{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.section2::before{
+    content: "";
+    width: 650px;
+    height: 530px;
+    background-image: url(../images/orion_bg.png);
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 600px;
+    left: -400px;
+}
+.section2::after{
+    content: "";
+    width: 680px;
+    height: 180px;
+    background-image: url(../images/orion_gray.png);
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(20deg);
+    position: absolute;
+    top: 160px;
+    right: -260px;
+}
+.section2 .history-wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.section2 .history-wrap .history{
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 10;
+    opacity: 0;
+    transition: 0.8s all;
+}
+.section2 .history-wrap .history.on{
+    left: 0;
+    opacity: 1;
+}
+.section2 .history-wrap .history.on h2{
+    opacity: 1;
+}
+.section2 .history-wrap .history.on p{
+    opacity: 1;
+}
+.section2 .history-wrap .history.on span{
+    opacity: 1;
+}
+.section2 .history-wrap .history.on img{
+    opacity: 1;
+}
+
+.section2 .history-wrap .history h2{
+    font-family: 'NEXEN_TIRE_Bold';
+    font-size: 130px;
+    letter-spacing: 10px;
+    
+    opacity: 0;
+    transition: 0.3s all;
+}
+.section2 .history-wrap .history p{
+    font-family: 'NEXEN_TIRE_Regular';
+    font-size: 52px;
+    letter-spacing: 5px;
+    padding-bottom: 100px;
+    
+    opacity: 0;
+    transition: 0.3s all;
+}
+.section2 .history-wrap .history span{
+    font-family: 'NEXEN_TIRE_Regular';
+    font-size: 30px;
+    word-spacing: 5px;
+    line-height: 45px;
+    
+    opacity: 0;
+    transition: 0.3s all;
+}
+.section2 .history-wrap .history img{
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    width: 780px;
+    height: 500px;
+    
+    opacity: 0;
+    transition: 0.8s all ease 0.5s;
+}
+
+.section2 .btn{
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 150px;
+    cursor: pointer;
+}
+.section2 .btn.invisible{
+    display: none;
+}
+.section2 .btn.pre{
+    background-image: url(../images/pre.png);
+    right: 70px;
+}
+.section2 .btn.next{
+    background-image: url(../images/next.png);
+    right: 0;
+}
+/*###########section3################*/
+#section3{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(90deg, #ffdc60 50%, #a5b73c 50%);
+    overflow: hidden;
+    display: flex;
+}
+#section3>div{
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+#section3>div::after{
+    content: "";
+    width: 95%;
+    height: 95%;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left-wrap .round-1{
+    width: 430px;
+    height: 430px;
+    border-radius: 50%;
+    background-color: #fde694;
+    opacity: 0.6;
+    position: absolute;
+    top: 320px;
+    left: 60px;
+    animation: wobble 3s infinite ease-in-out;
+}
+.left-wrap .round-2{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background-color: #fde694;
+    opacity: 0.6;
+    position: absolute;
+    top: -10px;
+    left: 70px;
+    animation: wobble 3s 275ms infinite ease-in-out;
+}
+.left-wrap .round-3{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffd236;
+    position: absolute;
+    top: 150px;
+    left: 530px;
+    animation: wobble 3s 150ms infinite ease-in-out;
+}
+.left-wrap .round-4{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffd236;
+    position: absolute;
+    bottom: 100px;
+    left: 90px;
+    animation: wobble 3s 500ms infinite ease-in-out;
+}
+.left-wrap .round-5{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #ffd236;
+    position: absolute;
+    bottom: 300px;
+    left: 420px;
+    animation: wobble 3s infinite ease-in-out;
+}
+.left-wrap .round-6{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #ffd236;
+    position: absolute;
+    bottom: -220px;
+    left: 300px;
+    animation: wobble 3s 355ms infinite ease-in-out;
+}
+
+.left-wrap .left{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.left-wrap .left .img-wrap{}
+.left-wrap .left .img-wrap a{}
+.left-wrap .left .img-wrap a img{
+    width: 480px;
+    height: auto;
+    position: absolute;
+    transform: rotate(-30deg);
+    top: 200px;
+    right: -30px;
+    z-index: 1;
+    transition: 0.1s all;
+}
+.left-wrap .left .img-wrap a img.on{
+    transform: rotate(-10deg);
+}
+.left-wrap .left .img-wrap img.hover1{
+    position: absolute;
+    width: 250px;
+    height: auto;
+    top: 80px;
+    left: 180px;
+    transform: rotate(20deg);
+    opacity: 0;
+}
+.left-wrap .left .img-wrap img.hover2{
+    position: absolute;
+    width: 280px;
+    height: auto;
+    top: 400px;
+    left: 130px;
+    transform: rotate(-30deg);
+    opacity: 0;
+}
+.left-wrap .left .img-wrap>img.on{
+    opacity: 1;
+}
+.left-wrap .left .txt-wrap{
+    position: absolute;
+    bottom: 120px;
+    left: 250px;
+    color: #fff;
+}
+.left-wrap .left .txt-wrap h2{
+    font-family: 'NEXEN_TIRE_Regular';
+    font-size: 70px;
+}
+.left-wrap .left .txt-wrap p{
+    font-family: 'KoPubDotumLight';
+    font-size: 25px;
+}
+
+.right-wrap .round-1{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #C9DB66;
+    position: absolute;
+    top: 250px;
+    left: 190px;
+    animation: wobble 3s infinite ease-in-out;
+}
+.right-wrap .round-2{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #86981F;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    animation: wobble 3s 275ms infinite ease-in-out;
+}
+.right-wrap .round-3{
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background-color: #86981F;
+    position: absolute;
+    top: 20px;
+    left: 530px;
+    animation: wobble 3s 150ms infinite ease-in-out;
+}
+.right-wrap .round-4{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #86981F;
+    position: absolute;
+    bottom: 70px;
+    left: 190px;
+    animation: wobble 3s 500ms infinite ease-in-out;
+}
+.right-wrap .round-5{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #C9DB66;
+    position: absolute;
+    bottom: 350px;
+    left: 500px;
+    animation: wobble 3s infinite ease-in-out;
+}
+.right-wrap .round-6{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: #C9DB66;
+    position: absolute;
+    bottom: 0px;
+    left: 700px;
+    animation: wobble 3s 355ms infinite ease-in-out;
+}
+.right-wrap .round-7{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #86981F;
+    position: absolute;
+    bottom: 300px;
+    left: 560px;
+    animation: wobble 3s 200ms infinite ease-in-out;
+}
+.right-wrap .right{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.right-wrap .right .img-wrap{}
+.right-wrap .right .img-wrap a{}
+.right-wrap .right .img-wrap a img{
+    width: 400px;
+    height: auto;
+    position: absolute;
+    transform: rotate(15deg);
+    bottom: 140px;
+    left: 0;
+    transition: 0.1s all;
+    z-index: 2;
+}
+.right-wrap .right .img-wrap a img.on{
+    transform: rotate(25deg);
+}
+.right-wrap .right .img-wrap>img{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    bottom: 100px;
+    left: 330px;
+    z-index: 3;
+    opacity: 0;
+}
+.right-wrap .right .img-wrap>img.on{
+    opacity: 1;
+}
+.right-wrap .right .txt-wrap{
+    position: absolute;
+    top: 120px;
+    right: 250px;
+    text-align: right;
+    color: #fff;
+}
+.right-wrap .right .txt-wrap h2{
+    font-family: 'NEXEN_TIRE_Regular';
+    font-size: 70px;
+}
+.right-wrap .right .txt-wrap p{
+    font-family: 'KoPubDotumLight';
+    font-size: 25px;
+}
+/*###########section4################*/
+#section4{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #f5dfc7 50%, #fff 50%);
+    position: relative;
+    display: flex;
+}
+#section4 .left{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../images/nature-bg.jpg);
+    background-position: 70% 70%;
+    position: relative;
+}
+#section4 .left::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(245,223,199,0.7);
+}
+#section4 .right{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#section4 .right .txt-wrap{}
+#section4 .right .txt-wrap li{
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    font-family: 'NEXEN_TIRE_Regular';
+    opacity: 0;
+    transition: 0.3s all;
+}
+#section4 .right .txt-wrap li.on{
+    opacity: 1;
+}
+#section4 .right .txt-wrap li h3{
+    font-size: 84px;
+    color: #592d0c;
+    line-height: 70px;
+    padding-bottom: 20px;
+}
+#section4 .right .txt-wrap li h3 strong{
+    display: inline-block;
+    font-style: italic;
+    padding-bottom: 30px;
+}
+#section4 .right .txt-wrap li h3 span{
+    display: inline-block;
+    font-size: 40px;
+    padding-left: 30px;
+}
+#section4 .right .txt-wrap li.red h3 span{
+    color: #953d39;
+}
+#section4 .right .txt-wrap li.blue h3 span{
+    color: #2d3056;
+}
+#section4 .right .txt-wrap li.green h3 span{
+    color: #7f7b3c;
+}
+#section4 .right .txt-wrap li p{
+    font-family: 'KoPubDotumMedium';
+    font-size: 26px;
+    line-height: 35px;
+}
+#section4 .right .txt-wrap li.red p strong{
+    font-weight: bold;
+    color: #9f4542;
+}
+#section4 .right .txt-wrap li.blue p strong{
+    font-weight: bold;
+    color: #2d3056;
+}
+#section4 .right .txt-wrap li.green p strong{
+    font-weight: bold;
+    color: #828043;
+}
+#section4 .right .btn{
+    position: absolute;
+    top: 340px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+#section4 .right .btn.on{
+    top: 320px;
+}
+#section4 .right .btn.on a{
+/*
+    background-color: #33291f;
+    border: 3px solid #33291f;
+    color: #fff;
+*/
+    border: 3px solid #33291f;
+    color: #33291f;
+    background-color: transparent;
+}
+#section4 .right .btn a{
+    background-color: #33291f;
+    border: 3px solid #33291f;
+    color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    border-radius: 3px;
+    font-size: 30px;
+    font-family: candara;
+    font-style: italic;
+    font-weight: bold;
+    padding: 10px 60px;
+}
+#section4 .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#section4 .content::before{
+    content: "";
+    display: block;
+    width: 200px;
+    height: 180px;
+    background-color: #f9f1e7;
+    position: absolute;
+    left: 0;
+    bottom: 200px;
+}
+#section4 .content::after{
+    content: "";
+    display: block;
+    width: 200px;
+    height: 180px;
+    background-color: #f5dfc7;
+    position: absolute;
+    right: 0;
+    bottom: 200px;
+}
+
+#section4 .content h2{
+    font-size: 42px;
+    font-family: 'NEXEN_TIRE_Bold';
+    color: #592d0c;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#section4 .content .small-1{
+    position: absolute;
+    bottom: 160px;
+    left: 100px;
+    transition: 0.3s all ease;
+}
+#section4 .content .small-1.on{
+    left: 120px;
+}
+#section4 .content .small-2{
+    position: absolute;
+    bottom: 160px;
+    right: 100px;
+    z-index: 1;
+    transition: 0.3s all ease;
+}
+#section4 .content .small-2.on{
+    right: 120px;
+}
+#section4 .content .small img{
+    width: 190px;
+    height: 260px;
+    cursor: pointer;
+}
+#section4 .content .big{
+    position: absolute;
+    top: 200px;
+    left: 33%;
+}
+#section4 .content .big img{
+    width: 480px;
+    height: 620px;
+}
+/*###########section5################*/
+#section5{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../images/sns-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.section5{
+    width: 100%;
+    height: 100%;
+    padding-top: 130px;
+}
+.section5>div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 35px;
+}
+
+.section5 .box{
+    width: 330px;
+    height: 330px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+}
+.section5 .top .box.box1{
+    background-color: #b39064;
+    transition: 0.3s all ease;
+}
+.section5 .top .box.box1.on{
+    background-color: #eb1c2a;
+    border-radius: 50%;
+    transform: rotate(360deg);
+}
+.section5 .top .box.box2{
+    background-image: url(../images/sns1.JPG);
+}
+.section5 .top .box.box3{
+    background-image: url(../images/sns2.JPG);
+}
+.section5 .top .box.box4{
+    background-image: url(../images/sns3.JPG);
+}
+.section5 .bottom .box.box1{
+    background-image: url(../images/sns4.JPG);
+}
+.section5 .bottom .box.box2{
+    background-image: url(../images/sns5.JPG);
+}
+.section5 .bottom .box.box3{
+    background-image: url(../images/sns6.JPG);
+}
+.section5 .bottom .box.box4{
+    background-image: url(../images/sns7.JPG);
+}
+
+.section5 .top .box1 p{
+    font-family: 'KoPubDotumMedium';
+    font-size: 24px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.section5 .top .box1 h3{
+    font-family: 'KoPubDotumBold';
+    font-size: 38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.section5 .top .box1 h3 a{
+    color: #fff;
+}
+
+.section5 .box .hover{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.section5 .box .txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.section5 .box .txt li{
+    padding-right: 20px;
+}
+.section5 .box .txt li img{
+    width: 25px;
+    height: auto;
+}
+.section5 .box .txt li span{
+    font-family: 'KoPubDotumBold';
+    font-size: 14px;
+}
+/*###########footer################*/
+#footer{
+    width: 100%;
+    height: 176px;
+    background-color: #3f3e36;
+}
+.footer{
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+    padding-top: 38px;
+}
+.footer .quick{
+    display: flex;
+    padding-bottom: 18px;
+}
+.footer .quick li{
+    padding: 0 18px;
+    border-left: 2px solid #fff;
+    line-height: 20px;
+}
+.footer .quick li:first-child{
+    padding-left: 0;
+    border: 0;
+}
+.footer .quick li a{
+    color: #fff;
+    font-size: 18px;
+    display: block;
+}
+
+.footer .sns{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 36px;
+}
+.footer .sns li{
+    padding-left: 20px;
+}
+.footer .sns li a{}
+.footer .sns li a img{
+    width: 30px;
+    height: auto;
+}
+
+.footer address{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 22px;
+}
+.footer address .copyright {
+    line-height: 35px;
+}

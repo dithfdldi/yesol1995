@@ -1,0 +1,511 @@
+@charset "utf-8";
+@font-face{ font-family: 'KoPubDotumBold'; font-weight: 700; font-style: normal; src: url('../fonts/KoPubDotumBold.woff') format("woff"), url('../fonts/KoPubDotumBold.ttf') format("truetype");}
+@font-face{ font-family: 'KoPubDotumMedium'; font-weight: 400; font-style: normal; src: url('../fonts/KoPubDotumMedium.woff') format("woff"), url('../fonts/KoPubDotumMedium.ttf') format("truetype"); }
+@font-face{ font-family: 'KoPubDotumLight'; font-weight: 300; font-style: normal; src: url('../fonts/KoPubDotumLight.woff') format("woff"), url('../fonts/KoPubDotumLight.ttf') format("truetype"); }
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css); .nanumgothic * { font-family: 'Nanum Gothic', sans-serif; }
+@font-face { font-family: 'NEXEN_TIRE_Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NEXEN_TIRE_Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Regular.woff') format('woff'); font-weight: normal; font-style: normal; }
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap');
+
+#wrap{
+    width: 100%;
+    height: 100%;
+}
+/*###########header################*/
+#header{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    position: 10;
+}
+#header .sub-cover{
+    width: 100%;
+    height: 0; /*280px*/
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s all ease;
+}
+
+#header .main-nav{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    border-bottom: 1px solid #fff;
+}
+
+#header .main-nav h1 a img{
+    width: 280px;
+    height: auto;
+}
+#header .main-nav .gnb{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 200px;
+}
+#header .main-nav .gnb>li{
+    font-family: 'KoPubDotumBold';
+    font-size: 23px;
+    position: relative;
+    padding-right: 130px;
+}
+#header .main-nav .gnb>li>a{
+    display: block;
+    color: #fff;
+    position: relative;
+    height: 100px;
+    line-height: 100px;
+}
+#header .main-nav .gnb>li>a:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background-color: #eb1c2a;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+    transition: 0.5s all cubic-bezier(0.2, 0.3, 0.5, 1.8);
+}
+#header .main-nav .gnb>li>a.on:after{
+    width: 120%;
+}
+#header .main-nav .gnb>li .lnb{
+    display: none;
+    position: absolute;
+    top: 110px;
+    left: 0;
+}
+#header .main-nav .gnb>li .lnb li{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+}
+#header .main-nav .gnb>li .lnb li a.on{
+    color: #eb1c2a;
+}
+
+#header .main-nav .ham-menu{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+#header .main-nav .ham-menu span{
+    position: absolute;
+    right: 50px;
+    z-index: 201;
+    display: block;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: 0.3s all ease;
+}
+#header .main-nav .ham-menu span.bar1{
+    width: 60px;
+    top: 40px;
+}
+#header .main-nav .ham-menu span.bar2{
+    width: 40px;
+    top: 60px;
+}
+#header .main-nav .ham-menu span.bar1.on{
+    transform: rotate(45deg);
+}
+#header .main-nav .ham-menu span.bar2.on{
+    width: 60px;
+    transform: rotate(-45deg);
+}
+#header .main-nav .ham-menu span.bar2.hover{
+    width: 60px;
+}
+
+
+#header .all-menu{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 100%; /*0*/
+    background-image: url(../images/menu-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 9;
+    transition: 0.5s all ease-out;
+}
+#header .all-menu:after{
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+}
+#header .all-menu .main-list{
+    position: absolute;
+    z-index: 10;
+    margin-left: 350px;
+    padding-top: 230px;
+}
+#header .all-menu .main-list>li{
+    font-size: 76px;
+    font-family: 'NEXEN_TIRE_Bold';
+    position: relative;
+    margin-bottom: 30px;
+    padding-right: 80px;
+}
+#header .all-menu .main-list>li>a{
+    color: rgba(255,255,255,0.5);
+}
+#header .all-menu .main-list>li>a.on{
+    color: #fff;
+}
+#header .all-menu .main-list>li .sub-list{
+    display: flex;
+    width: 1200px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+#header .all-menu .main-list>li .sub-list li{
+    font-size: 36px;
+    font-family: 'NEXEN_TIRE_Regular';
+    padding-left: 80px;
+}
+#header .all-menu .main-list>li .sub-list li a{
+    color: rgba(255,255,255,0.5);
+}
+#header .all-menu .main-list>li .sub-list li a.on{
+    color: #fff;
+}
+/*###########section0################*/
+#section0{
+    width: 100%;
+    height: 700px;
+    background: #ddd url(../images/sub-bg3.png) no-repeat center top fixed;
+    background-size: 100%;
+}
+.bg-txt p{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: absolute;
+    height: 2000px;
+    top: 710px;
+    font-size: 140px;
+    word-spacing: -100px;
+    letter-spacing: -10px;
+    font-family:'Berlin Sans FB';
+    color: #eee;
+    cursor: default;
+}
+/*###########section1################*/
+#section1{
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    z-index: -9;
+    height: 750px;
+    overflow: hidden;
+}
+.section1{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+.section1 .img-wrap{
+    flex: 1;
+    position: relative;
+    top: 180px;
+    text-align: center;
+}
+.section1 .img-wrap img{
+    width: 350px;
+    height: auto;
+}
+.section1 .txt-wrap{
+    flex: 1;
+    position: relative;
+    top: 200px;
+}
+.section1 .txt-wrap p{
+    font-family: 'KoPubDotumBold';
+    font-size: 28px;
+    color: #b39064;
+    padding-bottom: 15px;
+}
+.section1 .txt-wrap h2{
+    font-family: 'NEXEN_TIRE_Regular';
+    color: #534636;
+    font-size: 72px;
+   
+    padding-bottom: 30px;
+}
+.section1 .txt-wrap ul{}
+.section1 .txt-wrap ul li{
+    font-family: 'KoPubDotumMedium';
+    font-size: 22px;
+    color: #000;
+    line-height: 50px;
+}
+.section1 .txt-wrap ul li img{
+    width: 32px;
+    height: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+#section1>p{
+    position: absolute;
+    bottom: 0;
+    right: -60px;
+    font-size: 140px;
+    letter-spacing: 40px;
+    font-family:'Berlin Sans FB';
+    color: #eee;
+    cursor: default;
+}
+/*###########section2################*/
+#section2{
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+}
+.section2{
+    width: 100%;
+    padding-top: 100px;
+}
+.section2 .table-wrap{
+    width: 70%;
+    margin: 0 auto;
+}
+.section2 .table-wrap .table-title{
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.section2 .table-wrap .table-title::before{
+    content: "";
+    width: 50px;
+    height: 5px;
+    background-color: #eb1c2a;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+.section2 .table-wrap .table-title h3{
+    font-family: 'KoPubDotumBold';
+    font-size: 30px;
+    padding-bottom: 70px;
+}
+.section2 .table-wrap .table-info{
+    text-align: right;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+.section2 .table-wrap .table-info p{}
+
+.section2 .table-wrap table{
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+.section2 .table-wrap table caption{
+    display: none;
+}
+.section2 .table-wrap table th, .section2 table tr{
+    padding: 8px;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.section2 .table-wrap table th.th-color{
+    background-color: #ccc;
+}
+
+.section2 .table-wrap .table-ps{
+    text-align: right;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+.section2 .table-wrap .table-ps p{}
+/*###########section3################*/
+#section3{
+    width: 100%;
+    background-color: #fff;
+}
+.section3{
+    width: 100%;
+    padding-top: 200px;
+}
+.section3 .relate-title{
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.section3 .relate-title::before{
+    content: "";
+    width: 50px;
+    height: 5px;
+    background-color: #eb1c2a;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    
+}
+.section3 .relate-title h3{
+    font-family: 'KoPubDotumBold';
+    font-size: 30px;
+    padding-bottom: 70px;
+}
+.section3 .relate-img{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+.section3 .relate-img li{}
+.section3 .relate-img li .img{
+    width: 230px;
+    height: 230px;
+    padding-left: 35px;
+    line-height: 230px;
+    position: relative;
+}
+.section3 .relate-img li .img img{
+    width: 160px;
+    height: auto;
+}
+.line-top, .line-bottom{
+    display: inline-block;
+    height:5px;
+    width:0;
+    background:#eb1c2a;
+    position:absolute;
+}
+.line-right, .line-left{
+    display: inline-block;
+    height:0;
+    width:5px;
+    background:#eb1c2a;
+    position:absolute;
+}
+.line-top{top: 0; left: 0;}
+.line-right{top: 0; right: 0;}
+.line-bottom{right: 0; bottom: 0;}
+.line-left{left: 0; bottom: 0;}
+.on .line-top{transition: width 0.3s ease-out; width: 100%;}
+.on .line-right{transition: height 0.1s ease-out 0.1s; height: 100%}
+.on .line-bottom{transition: width 0.2s ease-out 0.2s; width: 100%;}
+.on .line-left{transition: height 0.3s ease-out 0.3s; height: 100%}
+
+.section3 .relate-img li .txt{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 10px;
+}
+.section3 .relate-img li.on .txt{
+    text-decoration: underline;
+}
+
+.section3 .btn{
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.section3 .btn>div{
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    border-radius: 3px;
+    color: #fff;
+}
+.section3 .btn .top{
+    background-color: #666;
+    cursor: pointer;
+}
+.section3 .btn .list{
+    background-color: #eb1c2a;
+    margin-left: 20px;
+}
+/*###########footer################*/
+#footer{
+    width: 100%;
+    height: 176px;
+    background-color: #3f3e36;
+}
+.footer{
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+    padding-top: 38px;
+}
+.footer .quick{
+    display: flex;
+    padding-bottom: 18px;
+}
+.footer .quick li{
+    padding: 0 18px;
+    border-left: 2px solid #fff;
+    line-height: 20px;
+}
+.footer .quick li:first-child{
+    padding-left: 0;
+    border: 0;
+}
+.footer .quick li a{
+    color: #fff;
+    font-size: 18px;
+    display: block;
+}
+
+.footer .sns{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 36px;
+}
+.footer .sns li{
+    padding-left: 20px;
+}
+.footer .sns li a{}
+.footer .sns li a img{
+    width: 30px;
+    height: auto;
+}
+
+.footer address{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 22px;
+}
+.footer address .copyright {
+    line-height: 35px;
+}

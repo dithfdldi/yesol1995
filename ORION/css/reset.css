@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: middle;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+a, a:hover{
+    color: #000;
+    text-decoration: none;
+}
+ul, li, ol{
+    list-style: none;
+}
+img{
+    border: 0;
+}
+table, tr, td, th{
+    border-collapse: collapse;
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+}
+.clearfix::after{
+    clear: both;
+}
+.container{
+    width: 1420px;
+    margin: 0 auto;
+    height: 100%;
+}
+html, body{
+    color: #000;
+    height: 100%;
+}

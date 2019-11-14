@@ -1,0 +1,330 @@
+@charset "utf-8";
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap&subset=korean');
+
+
+*{
+    border:0;
+    margin: 0;
+    padding: 0;
+    vertical-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+ol,ul,li{
+    list-style: none;
+}
+
+a,a:hover{
+    text-decoration: none;
+    color:#222328;
+    
+}
+
+
+#wrap{
+    width:100%;
+}
+
+#container{
+    width:1260px;
+    margin: 0 auto;
+    
+    
+}
+
+/*header 부*/
+#header{
+    width:100%;
+    height: 100px;
+    background-color: #fff;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    display: flex;
+    top:0;
+    left:0;
+    z-index: 99;
+}
+
+#header h1{
+    flex:4;
+    height: 100px;
+}
+
+#header .logo{
+    width:100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header .logo a{
+    display: inline-block;
+    width:100%;
+    height: 100px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+}
+
+/*header main-nav 부*/
+ 
+
+.nav {
+    flex: 6;
+    position: relative;
+}
+
+.nav .main-nav .main-nav2{
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+.nav .main-nav .main-nav2 li{
+    width: 180px;
+    padding-left: 20px;
+}
+
+.nav .main-nav .main-nav2 li a{
+    display: block;
+    width:180px;
+    color:black;
+    font-size: 1.2rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
+
+.nav .main-nav .main-nav2 li a.on{
+    background-color: cornflowerblue;
+    transition: 0.2s ease;
+}
+
+/*header sub-nav 부*/
+
+
+
+.nav .sub-nav{
+   
+    background-color: rgba(192,192,192,0.8);
+    position: absolute;
+    width: 100%;
+    display: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items:top; 
+    
+}
+
+.nav .sub-nav .sub{
+    width:180px;  
+    padding-left: 20px; 
+}
+.nav .sub-nav .sub li{
+    width: 180px;
+    height: 60px;
+    margin-top: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    
+}
+.nav .sub-nav .sub li a{
+    display: block;
+    width:180px;
+    height: 60px;
+    
+}
+.nav .sub-nav .sub li a.on{
+    background-color: cornflowerblue;
+    transition: 0.2s ease;
+}
+
+/*image 부 */
+
+
+.image{
+    width: 100%;
+    height: 100vh;
+}
+
+.image ul{
+}
+
+.image ul li{
+
+}
+
+.image ul li a{
+    display: block;
+    width:100%;
+    height: 100vh;
+    
+    background-image: url(../images/image1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+/*search 부*/
+.search {
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);    /*가운데 정렬*/
+    bottom:100px;
+    height: 50px;
+    width: 560px;
+    border: 1px solid white;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    
+}
+input{
+    font-size: 1.4rem;
+    width:300px;
+    padding: 5px;
+    border:0;
+    border-radius: 10px 10px 10px 10px;
+    outline:none; /*바깥선x*/
+    float:left;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+}
+button{
+    width:50px;
+    height: 100%;
+    
+    border-radius: 10px 10px 10px 10px;
+    background: #1b5ac2;
+    float:right;
+    outline: none;
+    color:#fff;
+    
+}
+
+button a{
+    display: block;
+    width:50px;
+    height: 100%; 
+    color:#fff;
+    line-height: 50px;
+    font-size: 1.4rem;
+}
+
+/*sns부*/
+
+
+.sns{    
+    width:300px;
+    height: 383px;
+    position: absolute;
+    background-color: #fff;
+    opacity:0.9;
+    overflow: hidden;
+    left:68%;
+    top:49%;
+    border-radius: 5%;
+}
+
+.sns .slide-wrap{
+    width:1500px;
+    height: 183px;
+    position: relative;
+    
+}
+
+.sns .slide-wrap .slide{
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top:40px;
+    left: 0;
+}
+
+.sns .slide-wrap .slide li{
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 183px;
+}
+
+.sns .slide-wrap .slide li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sns > p{
+    font-size:2.0rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    
+    color:darksalmon;
+    text-align: center;
+    padding-top: 30px;
+}
+
+/*btn 부*/
+
+.btn{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom: 25px;
+    
+}
+
+.btn > .btn1 > a >img{
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+.btn .btn1{
+    
+    width:40px;
+    height: 40px;
+    margin-left: 5px;
+    border-radius: 25%;
+    background: #fff;
+    
+    float:left;
+    cursor: pointer;
+}
+
+.btn .btn1.on{
+    background-color: cadetblue;
+    transition: 0.2s ease;
+}
+
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
