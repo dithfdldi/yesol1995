@@ -1,0 +1,38 @@
+@charset "utf=8";
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: middle;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+ol, li, ul{
+    list-style: none;
+}
+a, a:hover{
+    color: #000;
+    text-decoration: none;
+}
+table, tr, td, th{
+    border-collapse: collapse;
+}
+img{
+    border: 0;
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+}
+.clearfix::after{
+    clear: both;
+}
+html, body{
+    color: #000;
+    background-color: #fff;
+}
+
