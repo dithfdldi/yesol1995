@@ -91,10 +91,13 @@ $(function(){
                 timer=setInterval(fade_change, 5000);
             }); 
     }
-    windowResize();
+    
+    var windowWidth=$(window).width();
+    if(windowWidth>768){windowResize();}
+    
     $(window).resize(function(){
-        var windowWidth=$(window).width();
-        if(windowWidth>768){
+        var windowReWidth=$(window).width();
+        if(windowReWidth>768){
             windowResize();
         }
     });
