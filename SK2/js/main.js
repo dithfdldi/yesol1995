@@ -54,10 +54,8 @@ $(function(){
         $('.sns-wrap .sns li').removeClass('on');
     });
     /*-------------slide-wrap---------------*/
-    $(window).resize(function(){
-        var windowWidth=$(window).width();
-        if(windowWidth>768){
-            $('.slide-wrap .slide:gt(0)').hide();
+    function windowResize(){
+        $('.slide-wrap .slide:gt(0)').hide();
 
             var cnt=0;
             var nowNum=1;
@@ -92,6 +90,12 @@ $(function(){
                 fade_change();
                 timer=setInterval(fade_change, 5000);
             }); 
+    }
+    windowResize();
+    $(window).resize(function(){
+        var windowWidth=$(window).width();
+        if(windowWidth>768){
+            windowResize();
         }
     });
     
